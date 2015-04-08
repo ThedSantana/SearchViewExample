@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,11 @@ public class SearchItem1Fragment extends ListFragment implements SearchView.OnQu
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.search_item1_fragment, container, false);
+        View layout = inflater.inflate(R.layout.search_item1_fragment, container, false);
+        ListView listView = (ListView) layout.findViewById(android.R.id.list);
+        TextView emptyTextView = (TextView) layout.findViewById(android.R.id.empty);
+        listView.setEmptyView(emptyTextView);
+        return layout;
     }
 
     @Override
